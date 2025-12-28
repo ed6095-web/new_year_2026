@@ -115,48 +115,28 @@ $(document).ready(function() {
 
 function celebrate() {
 
-	// hide clock
-	$clock.removeClass('animated flipInX');
 	$clock.addClass('animated flipOutX');
-
-	clearTimeout(timeout);
 
 	setTimeout(function () {
 
-		$message.fadeIn().addClass('animated fadeIn');
+		// STEP 1: BYE BYE 2025
+		$message
+			.html('BYE BYE<br><span id="year">2025</span>')
+			.fadeIn();
 
-		// STEP 1: show 2025 blinking
-		$('#year')
-			.text('2025')
-			.removeClass()
-			.addClass('animated flash infinite');
-
-		// STEP 2: after 4s → collapse 2025
+		// STEP 2: after delay → HAPPY NEW YEAR 2026
 		setTimeout(function () {
 
-			$('#year')
-				.removeClass()
-				.addClass('year-collapse');
+			$message
+				.html('HAPPY NEW YEAR<br><span id="year">2026</span>');
 
-			// STEP 3: small dramatic pause
-			setTimeout(function () {
+			$confetti.fadeIn(); // celebration starts here
 
-				// STEP 4: drop 2026
-				$('#year')
-					.removeClass()
-					.text('2026')
-					.addClass('year-drop');
+		}, 3000); // delay before switching text
 
-				// 🚀 STEP 5: celebration EXACTLY on impact
-				$confetti.fadeIn();
-				timeout = setTimeout(bounce, interval);
-
-			}, 200);
-
-		}, 4000);
-
-	}, 350);
+	}, 300);
 }
+
 
 
 function pulse() {
@@ -178,3 +158,4 @@ function bounce() {
 
 	timeout = setTimeout(bounce, interval);
 }
+
