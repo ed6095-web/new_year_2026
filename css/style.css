@@ -1,0 +1,123 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* MAIN MESSAGE */
+.message {
+    font-family: 'Great Vibes', cursive;
+    color: white;
+    position: absolute;
+    font-size: 95px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 50;
+    margin: auto;
+    line-height: 120px;
+    text-align: center;
+    display: none;
+}
+
+/* 🚨 RGB GLITCH NEON YEAR (LIKE IMAGE YOU SENT) */
+#year {
+    display: block;
+    font-size: 120px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #ffffff;
+    margin-top: 10px;
+
+    text-shadow:
+        -3px 0 #ff003c,   /* red */
+         3px 0 #00eaff,   /* blue */
+         0 0 10px rgba(255,255,255,0.8);
+
+    animation: neon-glitch 1.5s infinite alternate;
+}
+
+/* SUBTLE GLITCH PULSE */
+@keyframes neon-glitch {
+    0% {
+        text-shadow:
+            -3px 0 #ff003c,
+             3px 0 #00eaff,
+             0 0 10px rgba(255,255,255,0.8);
+    }
+    50% {
+        text-shadow:
+            -5px -1px #ff003c,
+             5px 1px #00eaff,
+             0 0 14px rgba(255,255,255,1);
+    }
+    100% {
+        text-shadow:
+            -2px 1px #ff003c,
+             2px -1px #00eaff,
+             0 0 8px rgba(255,255,255,0.7);
+    }
+}
+
+/* CANVAS */
+canvas {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: absolute;
+}
+
+#confetti {
+    display: none;
+}
+
+/* BACKGROUND */
+@keyframes move-twink-back {
+    from { background-position: 0 0; }
+    to   { background-position: -10000px 5000px; }
+}
+
+@keyframes move-clouds-back {
+    from { background-position: 0 0; }
+    to   { background-position: 10000px 0; }
+}
+
+.stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url(../img/stars.png) repeat top center;
+    z-index: 0;
+}
+
+.twinkling {
+    background: transparent url(../img/twinkling.png) repeat top center;
+    z-index: 1;
+    animation: move-twink-back 200s linear infinite;
+}
+
+.clouds {
+    background: transparent url(../img/clouds3.png) repeat top center;
+    z-index: 3;
+    animation: move-clouds-back 200s linear infinite;
+}
